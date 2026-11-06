@@ -1,7 +1,7 @@
 {
-  "name": "tokenizer",
+  "name": "tokenizeart",
   "version": "1.0.0",
-  "description": "Monkey42 (MKY) ERC20 Token with Bonus",
+  "description": "ERC-721 NFT on Ethereum Sepolia with Solidity, Hardhat and IPFS metadata",
   "main": "index.js",
   "scripts": {
     "compile": "npx hardhat compile",
