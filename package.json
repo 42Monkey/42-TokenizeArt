@@ -1,0 +1,29 @@
+{
+  "name": "tokenizer",
+  "version": "1.0.0",
+  "description": "Monkey42 (MKY) ERC20 Token with Bonus",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat run deployment/deploy.ts --network sepolia",
+    "verify": "npx hardhat run deployment/verify.ts --network sepolia",
+    "mint": "npx hardhat run mint/mint.ts --network sepolia",
+    "check": "npx hardhat run deployment/check.ts --network sepolia"
+  },
+  "keywords": [],
+  "author": "42Monkey",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.1.0",
+    "@nomicfoundation/hardhat-verify": "^2.1.3",
+    "@types/node": "^26.6.6",
+    "ethers": "^6.17.0",
+    "hardhat": "^2.29.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.6.1",
+    "dotenv": "^18.0.9"
+  }
+}

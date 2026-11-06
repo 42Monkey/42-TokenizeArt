@@ -1,0 +1,11 @@
+{
+  "name": "42 TokenizeArt",
+  "description": "Portrait of a cool monkey.",
+  "image": "ipfs://bafybeibwlqewa2w6uk7waknc4wtjc4r5nvsqwo6eillgkkfxcjprweco6y",
+  "attributes": [
+    {
+      "trait_type": "42 Cadet",
+      "value": "42Monkey"
+    }
+  ]
+}
