@@ -96,14 +96,23 @@ These are two different roles. Just happen to be the same wallet in this project
 
 Images are too expensive to keep on-chain, so they live on IPFS, where a file is addressed by the hash of its content, the `CID`.
 
+- **CID (Content Identifier)** is a hash of the file's content. The same content gives the same CID, and any change gives a different one.
+- **`ipfs://<CID>` URI** is a pointer to the content that doesn't depend on any server. This is what the contract and the metadata store.
+- **Pinning** keeps a file available on a node. Pinata is the pinning service here. Without a pin, a file can disappear if no node keeps a copy.
+- **Gateway** is an HTTP server that fetches IPFS content so browsers and wallets can display it (`https://gateway.pinata.cloud/ipfs/<CID>`).
+
+### How the NFT is stored ?
+
 1. The image is uploaded to IPFS and receives an image CID.
-2. That CID is written into `metadata.json` as `ipfs://<image CID>`
+2. That CID is written into `metadata.json` as `ipfs://<image CID>`.
 3. `metadata.json` is uploaded and receives the metadata CID, which becomes the token URI.
-4. Both files are pinned on Pinata, which keeps serving them. Without a pin, content may disappear if no node keeps a copy.
+4. Both files are pinned on Pinata.
 
-Because CID is derived from the content, the metadata and image cannot be changed after minting.
+### Why IPFS ?
 
-Changing either produces a different CID and would need a new token URI.
+- Storing an image on-chain would cost far too much gas.
+- The CID is derived from the content, so the files behind a token URI cannot be silently changed. Editing the image or the JSON produces a new CID, and this contract has no function to change a token's URI after minting.
+- `ipfs://` doesn't depend on one server or gateway.
 
 ---
 
@@ -211,7 +220,7 @@ npx hardhat run deployment/check.ts --network localhost
 
 - [OpenZeppelin Docs - ERC-721](https://docs.openzeppelin.com/contracts/5.x/erc721)
 - [Hardhat Docs](https://hardhat.org/docs/getting-started)
-- [IPFS (InterPlanetary File System)](https://ipfs.tech/)
+- [IPFS (InterPlanetary File System) - Hash around, and find out](https://ipfs.tech/)
 - [Sepolia Etherscan](https://sepolia.etherscan.io/)
 - [Sepolia PoW Faucet](https://sepolia-faucet.pk910.de/#/)
 - [Google Cloud Web3 Faucet](https://cloud.google.com/application/web3/faucet/ethereum/sepolia)
